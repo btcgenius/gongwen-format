@@ -1,0 +1,7 @@
+interface:
+  display_name: "公文格式助手"
+  short_description: "核对并规范化中文公文 Word 格式"
+  default_prompt: "Use $gongwen-format to 将这个 Word 文档整理成标准公文格式，并生成格式核对报告。"
+
+policy:
+  allow_implicit_invocation: true

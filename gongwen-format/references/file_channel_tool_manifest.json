@@ -1,0 +1,39 @@
+{
+  "name": "gongwen-format",
+  "display_name": "公文格式智能核对与规范化",
+  "version": "1.0.0",
+  "description": "通过文件上传/下载通道接收 Word 公文，按本地公文格式规则库自动排版，并将标准公文格式 Word 与格式核对报告作为输出文件返回给用户。",
+  "mode": "native_file_channel",
+  "command": {
+    "entrypoint": "python gongwen-format/scripts/file_channel_cli.py --input {input_file} --output-dir {output_dir}",
+    "input_file": "平台保存用户上传 .docx 或 .doc 后传入的本地文件路径",
+    "output_dir": "平台为本次工具调用分配的输出目录"
+  },
+  "inputs": [
+    {
+      "name": "input_file",
+      "type": "file",
+      "required": true,
+      "accept": [".docx", ".doc"],
+      "description": "用户上传的 Word 公文；.doc 会先转换为 .docx 再处理"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "standard_docx",
+      "type": "file",
+      "description": "整理后的标准公文格式 Word"
+    },
+    {
+      "name": "review_report",
+      "type": "file",
+      "description": "格式核对报告 Word"
+    },
+    {
+      "name": "zip",
+      "type": "file",
+      "description": "包含标准公文与核对报告的压缩包"
+    }
+  ],
+  "agent_prompt": "当用户上传 Word 文档并要求整理成标准公文格式、核对公文格式或按公文要求排版时，调用 gongwen-format 工具。工具通过文件通道接收上传文件，并将处理后的 Word 和核对报告作为附件返回。工具只调整格式，不擅自改写正文实质内容；文种、主送机关、保密属性、审批责任等事项需人工复核；严禁处理涉密或敏感文件。"
+}

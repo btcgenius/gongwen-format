@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+output/
+dist/
+*.doc
+*.docx
+*.zip
+
+# Font files are not redistributed in this public package.
+gongwen-format/assets/fonts/*
+!gongwen-format/assets/fonts/.gitkeep

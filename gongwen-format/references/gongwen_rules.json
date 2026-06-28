@@ -1,0 +1,98 @@
+{
+  "name": "公文格式规则库",
+  "version": "public-2026.06",
+  "sources": [
+    "GB/T 9704-2012 党政机关公文格式",
+    "可按本单位公开或内部授权规则自行扩展"
+  ],
+  "page": {
+    "paper": "A4",
+    "width_mm": 210,
+    "height_mm": 297,
+    "top_mm": 37,
+    "left_mm": 28,
+    "right_mm": 26,
+    "bottom_mm": 35
+  },
+  "paragraph": {
+    "line_spacing_pt": 28,
+    "body_first_line_chars": 2
+  },
+  "signature": {
+    "issuer_alignment": "right",
+    "date_alignment": "right"
+  },
+  "fonts": {
+    "title": {
+      "name": "方正小标宋简体",
+      "fallback": "方正小标宋体",
+      "size_pt": 22,
+      "bold": false,
+      "alignment": "center"
+    },
+    "body": {
+      "name": "仿宋_GB2312",
+      "size_pt": 16,
+      "bold": false
+    },
+    "level_1_heading": {
+      "name": "黑体",
+      "size_pt": 16,
+      "bold": false
+    },
+    "level_2_heading": {
+      "name": "楷体_GB2312",
+      "size_pt": 16,
+      "bold": false
+    },
+    "level_3_heading": {
+      "name": "仿宋_GB2312",
+      "size_pt": 16,
+      "bold": false
+    },
+    "footer_page_number": {
+      "name": "宋体",
+      "size_pt": 14
+    }
+  },
+  "semantic_patterns": {
+    "level_1_heading": "^[一二三四五六七八九十]+、",
+    "level_2_heading": "^（[一二三四五六七八九十]+）",
+    "level_3_heading": "^\\d+\\.",
+    "level_4_heading": "^（\\d+）",
+    "attachment_note": "^附件[:：]",
+    "date": "^\\d{4}年\\d{1,2}月\\d{1,2}日$",
+    "main_receiver": "[:：]$"
+  },
+  "checks": [
+    "页面设置：A4，天头37mm，订口28mm，右边距26mm，下边距35mm",
+    "标题：2号方正小标宋体，不加粗，居中",
+    "正文：3号仿宋_GB2312，固定值28磅行距，首行缩进2字符",
+    "一级标题：3号黑体，不加粗",
+    "二级标题：3号楷体_GB2312，不加粗",
+    "三级、四级标题：3号仿宋_GB2312",
+    "附件说明：正文下空一行，附件名称后不加标点",
+    "成文日期：阿拉伯数字标全年月日，月日不编虚位",
+    "落款和成文日期：右对齐",
+    "页码：4号半角宋体阿拉伯数字，左右各一字线"
+  ],
+  "format_error_examples": [
+    "标题滥用标点符号",
+    "结构层次序数使用不规则，如“1、”应为“1.”",
+    "发文年号使用方括号，如“[2017]”应为“〔2017〕”",
+    "标示年份起止使用半字线，如“2013-2015年”应为“2013—2015年”",
+    "附件名称后使用标点符号",
+    "附件序号写成“附件1：”而非“附件：1.”",
+    "二级标题独立成段时末尾使用句号",
+    "同一形式括号套用",
+    "图、表短语式说明文字末尾使用句号",
+    "多个书名号或引号并列时使用顿号分隔"
+  ],
+  "manual_review": [
+    "文种是否属于规范公文文种，是否存在请示、报告、函混用",
+    "标题中是否存在介词和文种重叠",
+    "主送机关是否符合行文关系和权限",
+    "正文实质内容、政策口径、保密属性是否需审批确认",
+    "印章位置和实体用印效果需在最终 PDF 或纸质件中复核"
+  ]
+}
