@@ -53,3 +53,7 @@ bash gongwen-format/scripts/install_fonts.sh
 - 不要把涉密、敏感或未经授权的内部文件提交到公开仓库。
 - 规则库中的格式要求可按本单位制度自行调整。
 - 工具只做格式辅助处理，不替代内容审核、审批责任、行文关系判断或最终用印确认。
+
+## 许可证
+
+本项目采用 MIT License。详见根目录 [LICENSE](LICENSE)。
